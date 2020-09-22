@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Covid19 Live Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Covid19 Live Tracker">
+    <meta name="author" content="Covid19">
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+    <script src="https://kit.fontawesome.com/01e0a0f5d5.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+  </head>
+
+  <body onhashchange="pageChange()">
+    <!-- tabbar navigation -->
+    <nav id="tabbar" class="tabbar hide">
+      <a href="#dashboard"><i class="fa fa-home" style="font-size: 25px;"></i> <br><br>Dashboard</a>
+      <a href="#map"><i class="fa fa-globe" style="font-size: 25px;"></i> <br><br>See Map</a>
+      <a href="#news"><i class="fa fa-newspaper" style="font-size: 25px;"></i> <br><br>News</a>
+      <a href="#profile"><i class="fa fa-user" style="font-size: 25px;"></i> <br><br>Profile</a>
+    </nav>
+
+    <!-- pages -->
+    <!-- dashboard page -->
+    <section id="dashboard" class="page">
+      <header class="topbar">
+        <h2>Covid19 Live Tracker</h2>
+      </header>
+      <div class="flex-container">
+        <div style="color: white;">Infected<br><br>21.451<div id="output" style="font-weight: bold;"></div></div>
+        <div style="color: white; background-color: #17A383;">Recovered<br><br>12.863<div id="output1" style="font-weight: bold;"></div></div>
+        <div style="color: white; background-color: #C42121;">Dead<br><br>512<div id="output2" style="font-weight: bold;"></div></div>
+      </div>
+      <div class="flex-container">
+      <div id="getApi1" class="btn11">Refresh Newest Infected</div>
+      <div id="getApi2" class="btn12" style="background-color: #17A383">Refresh Newest Recovered</div>
+      <div id="getApi3" class="btn13" style="background-color: #c42121;">Refresh Newest Dead</div>
+    </div>
+      <div class="container">
+        <div class="box_front"><div class="box1_front"></div>Confirmed Cases Global <div style="float: right;">30,171,561</div></div>
+      </div>
+      <div class="container">
+        <div class="box_front"><div class="box2_front"></div>Confirmed Active Cases Global <div style="float: right;">7,359,927</div></div>
+      </div>
+      <div class="container">
+        <div class="box_front"><div class="box3_front"></div>Confirmed Recoveries Global <div style="float: right;">22,046,082</div></div>
+      </div>
+      <div class="container">
+        <div class="box_front"><div class="box4_front"></div>Confirmed Deaths Global <div style="float: right;">950,625</div></div>
+      </div>
+      <div class="self_container">
+        <div class="self_front">Do you have Corona Virus? <a href="#selfreport1" class="self_btn">Self Report</a></div>
+      </div>
+    </section>
+
+    <!-- map page -->
+    <section id="map" class="page">
+      <header class="topbar">
+        <h2>Map</h2>
+      </header>
+      <div id="map"></div>
+      <script>
+        let map, infoWindow;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 56.162939, lng: 10.203921},
+            zoom: 6
+          });
+          infoWindow = new google.maps.InfoWindow;
+
+        let iconBase =
+            'https://developers.google.com/maps/documentation/javascript/examples/full/images/';
+
+        let icons = {
+          info: {
+            icon: iconBase + 'info-i_maps.png'
+          }
+        };
+
+        let features = [
+          {
+            position: new google.maps.LatLng(56.162939, 10.203921),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(56.1571658, 10.1618668),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(56.1445444, 10.1675316),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(56.1290429, 10.2063455),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(56.1089946, 10.1591386),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(56.141645, 10.106267),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(56.187525, 9.558581),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(56.471545, 10.029291),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(56.470786, 9.412683),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(56.385733, 8.607935),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.848287, 9.797205),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.699983, 9.544519),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.921136, 8.532741),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.501504, 8.494376),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.565319, 9.460578),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.546677, 9.707770),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.384746, 10.399909),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.228415, 9.427619),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(54.901269, 9.724250),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.027411, 9.372687),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.309784, 10.762458),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.394106, 11.383185),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.686274, 11.119513),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.244075, 11.751227),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(54.885473, 11.872077),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(54.755716, 11.454596),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(54.813231, 11.132389),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.450711, 12.132144),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.621678, 12.066226),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.692953, 11.692691),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.907540, 12.266727),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.644934, 12.415042),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.722355, 12.508426),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.640284, 12.601810),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.693727, 12.560611),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.764099, 12.571597),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.767962, 11.959110),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(56.992585, 8.522661),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(57.010535, 9.917924),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(57.435786, 9.994829),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(57.432829, 10.516679),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(57.662742, 10.456254),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(56.407521, 10.851762),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.051316, 10.568864),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.317895, 10.222795),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(55.253765, 9.909685),
+            type: 'info'
+          }, {
+            position: new google.maps.LatLng(56.161562, 8.962244),
+            type: 'info'
+          }
+        ];
+
+        // Create markers.
+        for (var i = 0; i < features.length; i++) {
+          let marker = new google.maps.Marker({
+            position: features[i].position,
+            icon: icons[features[i].type].icon,
+            map: map
+          });
+        };
+
+          // HTML5 geolocation.
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              let pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+              
+              infoWindow.setPosition(pos);
+              infoWindow.setContent('This is your location...<br><br>The info icons are Hotspots for Covid19');
+              infoWindow.open(map);
+              map.setCenter(pos);
+            }, function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+            });
+          } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+          }
+        }
+      </script>
+    </section>
+
+    <!-- news page -->
+    <section id="news" class="page">
+      <header class="topbar">
+        <h2>News</h2>
+      </header>
+      
+    </section>
+
+     <!-- profile page -->
+    <section id="profile" class="page">
+      <header class="topbar">
+          <h2>Profile</h2>
+          <a class="right" href="#" onclick="logout()">Logout</a>
+      </header>
+      <div id="user-data" style="color: white !important;"></div>
+    </section>
+
+    <!-- login page -->
+    <section id="login" class="page">
+      <header class="topbar">
+        <h2>Login / Create Account</h2>
+      </header>
+      <!-- firebase auth container  -->
+      <section id="firebaseui-auth-container"></section>
+    </section>
+
+    <!-- selfreport page1 -->
+    <section id="selfreport1" class="page">
+      <header class="topbar">
+        <h2>Self report</h2>
+      </header>
+      <div class="input_div">
+        <form action="#">
+          <h3 style="color: white">Do you have any symptoms?</h3>
+          <select id="symptoms1" name="symptoms1" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <input type="submit" value="Next Page" formaction="#selfreport2">
+        </form>
+      </div>
+    </section>
+
+    <!-- selfreport page2 -->
+    <section id="selfreport2" class="page">
+      <header class="topbar">
+        <h2>Self report</h2>
+      </header>
+      <div class="input_div">
+        <form action="#">
+          <h3 style="color: white">Which symptoms do you have?</h3>
+          <input type="checkbox" id="sympt1" name="sympt1">
+          <label for="sympt1"> Dry Cough</label><br>
+          <input type="checkbox" id="sympt2" name="sympt2">
+          <label for="sympt2"> High Fever</label><br>
+          <input type="checkbox" id="sympt3" name="sympt3">
+          <label for="sympt3"> Tiredness</label>
+          <br>
+          <input type="checkbox" id="sympt4" name="sympt4">
+          <label for="sympt4"> Nothing from above</label>
+          <br>
+          <input type="submit" value="Next Page" formaction="#selfreport3">
+        </form>
+      </div>
+    </section>
+
+    <!-- selfreport page3 -->
+    <section id="selfreport3" class="page">
+      <header class="topbar">
+        <h2>Self report</h2>
+      </header>
+      <div class="input_div">
+        <form action="#">
+          <h3 style="color: white">Have you been in close contact with someone that's been infected?</h3>
+          <select id="symptoms2" name="symptoms2" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <input type="submit" value="Next Page" formaction="#selfreport4">
+        </form>
+      </div>
+    </section>
+
+    <!-- selfreport page4 -->
+    <section id="selfreport4" class="page">
+      <header class="topbar">
+        <h2>Self report</h2>
+      </header>
+      <div class="input_div">
+        <form style="margin-top: 1%;" action="#">
+          <label for="name" style="font-size:20px">Name:</label><br>
+          <input type="text" id="name" name="name" required><br>
+          <br>
+          <br>
+          <label for="email" style="font-size:20px">E-mail:</label><br>
+          <input type="text" id="email" name="email" required><br><br>
+          <br>
+          <label for="tel" style="font-size:20px">Phone number:</label><br>
+          <input type="text" id="tel" name="tel" required><br><br><br>
+          <input type="submit" value="Next Page" formaction="#selfreport5">
+        </form>
+      </div>
+    </section>
+
+    <!-- selfreport page5 -->
+    <section id="selfreport5" class="page">
+      <header class="topbar">
+        <h2>Self report</h2>
+      </header>
+      <div class="input_div">
+        <div style="color: white;"><strong style="color: #17a383; font-size: 30px;">Thanks!</strong> for answering our Self Report!</div>
+        <br>
+        <div style="color: white;">We will reach out to you <strong style="color: #17a383;">as soon as possible!</strong></div>
+        <br>
+        <div style="color: white;">Until then <strong style="color: #17a383;">stay safe</strong> and follow your government's guideline.</div>
+      </div>
+      <img src="https://i.pinimg.com/originals/a1/95/70/a1957018a64731ed39a6be598c6ad682.png" alt="smileyface" class="resp-img">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <a href="#dashboard" class="btn1">Go back to the Homepage</a>
+    </section>
+
+    <!-- loader  -->
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <!-- spa js file -->
+    <script src="js/spa.js"></script>
+    <!-- main js file -->
+    <script src="js/main.js"></script>
+    <!-- api js file -->
+    <script src="js/script.js"></script>
+    <!-- map js file -->
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM75fRgrHiv0meOJnd1bk8Wpdt3702tyU&callback=initMap"></script>
+  </body>
+</html>

@@ -1,0 +1,440 @@
+/* ---------- root variables ---------- */
+:root {
+  --green: rgb(38, 76, 89);
+  --light-green: rgb(172, 198, 201);
+  --light-grey: #f1f1f4;
+  --text-color-light: #f1f1f1;
+  --text-color-dark: #333;
+  --font-family: Helvetica, Arial, sans-serif;
+}
+
+/* ---------- general styling ---------- */
+html {
+  font-family: var(--font-family);
+  height: 100%;
+  text-align: center;
+  width: 100%;
+  font-weight: 200;
+  background-color: #000 !important;
+}
+
+#map {
+  height: 100%;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-container > div {
+  background-color: #606060;
+  border-radius: 8px;
+  width: 100px;
+  margin: 20px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn11 {
+  background-color:#606060; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 6px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  width: 25%;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn12 {
+  background-color:#17A383; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 6px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  width: 25%;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn13 {
+  background-color:#C42121; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 6px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  width: 25%;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.container > div {
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  color: black;
+  float: left;
+  width: 440px;
+  margin: 20px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.self_container {
+  display: flex;
+  justify-content: center;
+}
+
+.self_container > div {
+  background-color: #7A7A7A;
+  color: white;
+  border-radius: 8px;
+  float: left;
+  width: 440px;
+  margin: 12px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.self_btn {
+  float: right;
+  width: 150px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #0F0F0F;
+  font-weight: bold;
+}
+
+.self_btn:hover {
+  color: white;
+}
+
+.box1_front {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #606060;
+  position: absolute;
+}
+
+.box2_front {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #17A383;
+  position: absolute;
+}
+
+.box3_front {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #A3A317;
+  position: absolute;
+}
+
+.box4_front {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: red;
+  position: absolute;
+}
+
+.box5_front {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #A31778;
+  position: absolute;
+}
+
+select {
+  width: 20%;
+  padding: 26px 20px;
+  margin: 2%;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f1f1f1;
+}
+
+a {
+  text-decoration: none !important;
+  color: white;
+}
+
+.resp-img {
+  width: 20%;
+  margin-top: 0.5%;
+  transition: transform .5s, filter 1.5s ease-in-out;
+}
+
+.resp-img:hover {
+  transform: scale(1.1);
+}
+
+input[type=text], select {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 28px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn1 {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 28px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#symptoms1 {
+  color: black;
+  font-weight: bold;
+}
+
+input[type=checkbox] {
+  flex-direction: column;
+  padding-left: 10%;
+  margin: 0.5%;
+  align-items: center;
+}
+
+label {
+  color: white;
+}
+
+.input_div {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+body {
+  margin: 0;
+  background-color: #000 !important;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+/* ---------- topbar styling ---------- */
+.topbar {
+  background-color: #17A383;
+  color: var(--text-color-light);
+  padding: 13.5px;
+  text-transform: uppercase;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.topbar h2 {
+  margin: 0;
+  font-weight: 300;
+}
+
+.topbar a {
+  text-decoration: none;
+  color: var(--text-color-light);
+  position: absolute;
+  top: 20px;
+}
+
+.topbar a.left {
+  left: 20px;
+}
+
+.topbar a.right {
+  right: 20px;
+}
+
+/* ---------- tabbar styling ---------- */
+.tabbar {
+  background-color: #0F0F0F;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+/* Style the links inside the navigation bar */
+.tabbar a {
+  display: inline-block;
+  color: var(--text-color-light);
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Change the color of links on hover */
+.tabbar a:hover {
+  background-color: #0f0f0f;
+  color: #17A383;
+}
+
+/* Add a color to the active/current link */
+.tabbar a.active {
+  background-color: #0F0F0F;
+  color: #17A383
+}
+
+/* ---------- page styling ---------- */
+.page {
+  display: none;
+  /*min heigh is screen heigh minus height of tab and top bar */
+  min-height: calc(100vh - 110px);
+  background-color: #000 !important;
+  animation: fadeIn 0.4s;
+  /* padding equals height of tabbar and topbar */
+  padding: 55px 0;
+}
+
+/* ---------- logo styling ---------- */
+.logo {
+  margin: 2em auto;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* ---------- animations ---------- */
+/* fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- loader styling ---------- */
+#loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999999;
+  overflow: hidden;
+  background: var(--loader-background-color);
+  text-align: center;
+}
+
+.spinner {
+  border: 5px solid var(--light-grey);
+  border-radius: 50%;
+  border-top: 5px solid var(--light-green);
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 1s linear infinite;
+  /* Safari */
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.4s, opacity 0.4s linear;
+}
+
+/* ---------- authentication styling ---------- */
+#firebaseui-auth-container {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.firebaseui-container {
+  font-family: var(--font-family);
+  font: 16px var(--font-family);
+}
+
+.firebaseui-title {
+  text-align: center;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.mdl-button--raised.mdl-button--colored,
+.mdl-button--raised.mdl-button--colored:active,
+.mdl-button--raised.mdl-button--colored:hover {
+  background: var(--green);
+  color: #fff;
+  border-radius: 0;
+}
+
+.firebaseui-textfield.mdl-textfield .firebaseui-label::after {
+  background-color: var(--green);
+}
+
+.profile-img{
+  margin-top: 4%;
+  border-radius: 8px;
+  width: 20%;
+}
